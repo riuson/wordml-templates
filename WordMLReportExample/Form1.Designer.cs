@@ -31,7 +31,7 @@
             this.buttonSelectTemplateFile = new System.Windows.Forms.Button();
             this.textBoxTemplateFileName = new System.Windows.Forms.TextBox();
             this.buttonShowBookmarks = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxBookmarks = new System.Windows.Forms.ListBox();
             this.textBoxTextValue = new System.Windows.Forms.TextBox();
             this.buttonReplaceAndSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,6 +48,7 @@
             this.buttonSelectTemplateFile.TabIndex = 0;
             this.buttonSelectTemplateFile.Text = "Select template file...";
             this.buttonSelectTemplateFile.UseVisualStyleBackColor = true;
+            this.buttonSelectTemplateFile.Click += new System.EventHandler(this.buttonSelectTemplateFile_Click);
             // 
             // textBoxTemplateFileName
             // 
@@ -67,16 +68,17 @@
             this.buttonShowBookmarks.TabIndex = 2;
             this.buttonShowBookmarks.Text = "Show bookmarks";
             this.buttonShowBookmarks.UseVisualStyleBackColor = true;
+            this.buttonShowBookmarks.Click += new System.EventHandler(this.buttonShowBookmarks_Click);
             // 
-            // listBox1
+            // listBoxBookmarks
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(124, 32);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(399, 263);
-            this.listBox1.TabIndex = 3;
+            this.listBoxBookmarks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxBookmarks.FormattingEnabled = true;
+            this.listBoxBookmarks.IntegralHeight = false;
+            this.listBoxBookmarks.Location = new System.Drawing.Point(124, 32);
+            this.listBoxBookmarks.Name = "listBoxBookmarks";
+            this.listBoxBookmarks.Size = new System.Drawing.Size(399, 263);
+            this.listBoxBookmarks.TabIndex = 3;
             // 
             // textBoxTextValue
             // 
@@ -102,7 +104,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.listBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxBookmarks, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonShowBookmarks, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonReplaceAndSave, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxTextValue, 1, 2);
@@ -137,7 +139,7 @@
         private System.Windows.Forms.Button buttonSelectTemplateFile;
         private System.Windows.Forms.TextBox textBoxTemplateFileName;
         private System.Windows.Forms.Button buttonShowBookmarks;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxBookmarks;
         private System.Windows.Forms.TextBox textBoxTextValue;
         private System.Windows.Forms.Button buttonReplaceAndSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

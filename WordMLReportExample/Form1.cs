@@ -1,20 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WordMLReportExample
 {
     public partial class Form1 : Form
     {
+        private string mTemplateFileName;
+        private string mSelectedBookmark;
+        private string mValue;
+
         public Form1()
         {
             InitializeComponent();
+            this.mTemplateFileName = this.mSelectedBookmark = this.mValue = String.Empty;
+        }
+
+        private void buttonSelectTemplateFile_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.CheckFileExists = true;
+                dialog.CheckPathExists = true;
+                dialog.Filter = "MS Word OpenXML (*.docx)|*.docx";
+                dialog.FilterIndex = 1;
+                dialog.Multiselect = false;
+                dialog.ShowReadOnly = true;
+                dialog.Title = "Select file for template";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.mTemplateFileName = dialog.FileName;
+                    this.textBoxTemplateFileName.Text = this.mTemplateFileName;
+                }
+            }
+        }
+
+        private void buttonShowBookmarks_Click(object sender, EventArgs e)
+        {
+            var bookmarks = Replacer.GetBookmarks(this.mTemplateFileName);
+            this.listBoxBookmarks.Items.Clear();
+            this.listBoxBookmarks.Items.AddRange(bookmarks.Select(x => x.Start.Name).ToArray());
         }
     }
 }
