@@ -98,6 +98,7 @@
             this.buttonReplaceAndSave.TabIndex = 2;
             this.buttonReplaceAndSave.Text = "Replace and Save...";
             this.buttonReplaceAndSave.UseVisualStyleBackColor = true;
+            this.buttonReplaceAndSave.Click += new System.EventHandler(this.buttonReplaceAndSave_Click);
             // 
             // tableLayoutPanel1
             // 

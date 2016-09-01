@@ -42,5 +42,25 @@ namespace WordMLReportExample
             this.listBoxBookmarks.Items.Clear();
             this.listBoxBookmarks.Items.AddRange(bookmarks.Select(x => x.Start.Name).ToArray());
         }
+
+        private void buttonReplaceAndSave_Click(object sender, EventArgs e)
+        {
+            this.mSelectedBookmark = Convert.ToString(this.listBoxBookmarks.SelectedItem);
+            this.mValue = this.textBoxTextValue.Text;
+
+            using (var dialog = new SaveFileDialog())
+            {
+                dialog.CheckFileExists = false;
+                dialog.CheckPathExists = true;
+                dialog.Filter = "MS Word OpenXML (*.docx)|*.docx";
+                dialog.FilterIndex = 1;
+                dialog.Title = "Select file for result";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Replacer.ReplaceAndSave(this.mTemplateFileName, dialog.FileName, this.mSelectedBookmark, this.mValue);
+                }
+            }
+        }
     }
 }
